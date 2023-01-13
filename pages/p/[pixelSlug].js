@@ -79,7 +79,7 @@ export default function Pixel() {
   const handleShareTwitter = () => {
     function generateTwit() {
       const url = window.location;
-      const link = `${url}?utm_source=twitter&utm_medium=share_card&share_time=${new Date().getTime()}/`;
+      const link = `${url}`;
       const text = `We are all the developers of @Altogic. Altogic helps us build applications faster!
     
     You can check out my card here: ${link}`;
