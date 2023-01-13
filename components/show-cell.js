@@ -9,7 +9,7 @@ export default function ShowCell({ indexKey, color, size }) {
         backgroundColor: color,
       }}
       className={cs([
-        "border border-gray-200",
+        "border border-gray-100",
         "w-full h-full",
         size === 16 && "w-4 h-4",
         size === 32 && "w-2 h-2",

@@ -22,7 +22,7 @@ export default function Cell(props) {
         backgroundColor: data?.color,
       }}
       className={cs([
-        "border border-gray-400",
+        "border border-gray-100",
         size === 16 &&
           "w-5 h-5 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14",
         size === 32 && "w-2.5 h-2.5 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7",
