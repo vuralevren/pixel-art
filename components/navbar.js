@@ -14,7 +14,11 @@ export default function Navbar() {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.auth.user);
+  const userState = useSelector((state) => state.auth.user);
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    setUser(userState);
+  }, [userState]);
 
   const logout = () => {
     dispatch(

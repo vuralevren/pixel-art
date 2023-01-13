@@ -33,11 +33,17 @@ function App({ Component, pageProps }) {
 
   return (
     <>
-      <NoSSR>
+      {Component.name == "Pixel" ? (
         <WrapApp>
           <Component {...pageProps} />
         </WrapApp>
-      </NoSSR>
+      ) : (
+        <NoSSR>
+          <WrapApp>
+            <Component {...pageProps} />
+          </WrapApp>
+        </NoSSR>
+      )}
 
       <ToastContainer
         position="top-center"

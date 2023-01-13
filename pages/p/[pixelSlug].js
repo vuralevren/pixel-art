@@ -18,6 +18,7 @@ import AddTeamMembersModal from "../../components/modals/add-team-members-modal"
 import LeaveTeamModal from "../../components/modals/leave-team-modal";
 import { ClipLoader } from "react-spinners";
 import Link from "next/link";
+import pixelService from "../../redux/pixel/pixelService";
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -26,15 +27,24 @@ import {
 import Head from "next/head";
 import Button from "../../components/button";
 
-export default function Pixel() {
+export default function Pixel({ pixel }) {
   const router = useRouter();
   const { pixelSlug } = router.query;
   const [selectedColor, setSelectedColor] = useState("#001219");
-  const user = useSelector((state) => state.auth.user);
+  const userState = useSelector((state) => state.auth.user);
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    if (userState) {
+      setUser(userState);
+    }
+  }, [userState]);
+
   const members = useArraySelector((state) => state.pixel.members);
   const member = _.find(members, (mem) => mem.userId === user?._id);
   const canDraw = member && ["owner", "editor"].includes(member?.role);
-  const pixel = useSelector((state) => _.get(state.pixel.pixels, pixelSlug));
+  // const pixel = useSelector((state) => _.get(state.pixel.pixels, pixelSlug));
   const dispatch = useDispatch();
   const [leftPixel, setLeftPixel] = useState(null);
   const [addMembersShow, setAddMembersShow] = useState(false);
@@ -310,4 +320,13 @@ export default function Pixel() {
       )}
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { pixelSlug } = context.params;
+
+  const { data: pixel, errors } = await pixelService.getBySlug(pixelSlug);
+  if (errors || !pixel) return { errorCode: errors?.status || 404 };
+
+  return { props: { pixel } };
 }
