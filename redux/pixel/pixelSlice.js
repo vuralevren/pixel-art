@@ -40,6 +40,7 @@ export const pixelSlice = createSlice({
     removePixelArtRequest() {},
     getPixelDrawersSearchRequest() {},
     deleteMemberRequest() {},
+    replacePictureRequest() {},
 
     drawPixel(state, action) {
       const { x, y, drawColor } = action.payload;

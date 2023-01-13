@@ -99,7 +99,7 @@ export default function PixelTable({ drawColor, canDraw, size }) {
       ref={pixelRef}
       id="pixel-table"
       className={cs([
-        "my-8 2xl:my-16",
+        "my-3 2xl:my-6",
         canDraw
           ? "touch-none touch-pinch-zoom cursor-cell"
           : "cursor-not-allowed",

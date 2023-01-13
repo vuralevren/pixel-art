@@ -79,6 +79,11 @@ const pixelService = {
       name: fileName,
     });
   },
+  replacePicture(file, pixelSlug) {
+    return endpoint.post("/pixel/replacePicture", file, {
+      pixelSlug,
+    });
+  },
 };
 
 export default pixelService;

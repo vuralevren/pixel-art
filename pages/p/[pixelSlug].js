@@ -24,6 +24,7 @@ import {
   TwitterShareButton,
 } from "react-share";
 import Head from "next/head";
+import Button from "../../components/button";
 
 export default function Pixel() {
   const router = useRouter();
@@ -75,6 +76,40 @@ export default function Pixel() {
     navigator.clipboard.writeText(url);
   };
 
+  const handleShareTwitter = () => {
+    function generateTwit() {
+      const url = window.location;
+      const link = `${url}?utm_source=twitter&utm_medium=share_card&share_time=${new Date().getTime()}/`;
+      const text = `We are all the developers of @Altogic. Altogic helps us build applications faster!
+    
+    You can check out my card here: ${link}`;
+      return encodeURIComponent(text);
+    }
+
+    setLoading(true);
+    dispatch(
+      pixelActions.replacePictureRequest({
+        pixelSlug,
+        onSuccess: () => {
+          setLoading(false);
+          window?.open(
+            `https://twitter.com/intent/tweet?text=${generateTwit()}`,
+            "_blank"
+          );
+        },
+        onFailure: () => {
+          setLoading(false);
+        },
+      })
+    );
+    // window?.open(
+    //   `https://twitter.com/intent/tweet?text=${generateTwit(
+    //     user._id
+    //   )}`,
+    //   "_blank"
+    // )
+  };
+
   const leavePixel = () => {
     setIsLoading(true);
     dispatch(
@@ -94,19 +129,9 @@ export default function Pixel() {
   return (
     <div>
       <Head>
-        <title>Developer Card | Altogic</title>
-        <meta
-          property="twitter:image"
-          content={`http://localhost:3000/api/og-image?slug=${pixelSlug}&time=${new Date(
-            pixel?.updatedAt
-          ).getTime()}`}
-        />
-        <meta
-          property="og:image"
-          content={`http://localhost:3000/api/og-image?slug=${pixelSlug}&time=${new Date(
-            pixel?.updatedAt
-          ).getTime()}`}
-        />
+        <title>{pixel?.name} | Pixel Art</title>
+        <meta property="twitter:image" content={pixel?.picture} />
+        <meta property="og:image" content={pixel?.picture} />
         <meta property="og:title" content="Altogic | Developer Card" />
         <meta property="og:site_name" content="Altogic Developer Network" />
         <meta
@@ -119,8 +144,11 @@ export default function Pixel() {
           property="twitter:description"
           content="Altogic developer card is a free tool that helps you to create a beautiful developer card for your profile."
         />
-        <meta property="twitter:url" content={"http://localhost:3000"} />
-        <meta property="og:url" content={"http://localhost:3000"} />
+        <meta
+          property="twitter:url"
+          content="https://pixel-art-next.vercel.app/"
+        />
+        <meta property="og:url" content="https://pixel-art-next.vercel.app/" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Altogic" />
         <meta name="twitter:creator" content="Altogic" />
@@ -137,7 +165,7 @@ export default function Pixel() {
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-center">
               {pixel?.name}
             </h2>
-            <div className="flex items-center mt-2">
+            <div className="flex items-center mt-1">
               {canDraw && (
                 <button
                   type="button"
@@ -183,24 +211,6 @@ export default function Pixel() {
                   />
                 </svg>
               </button>
-              <TwitterShareButton url={`${window.location}?twitter=true`}>
-                <a className="inline-flex items-center justify-center p-3 rounded-lg transition ease-in-out duration-200 hover:bg-purple-50">
-                  <svg
-                    className="w-6 h-6 text-slate-400"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M20.8513 7.47974C20.8592 7.67764 20.8618 7.87546 20.8618 8.07336C20.8618 14.0734 16.5286 21 8.60453 21C6.1704 21 3.90702 20.2444 2 18.958C2.3371 18.994 2.67946 19.021 3.02706 19.021C5.04528 19.021 6.90415 18.2922 8.37863 17.0689C6.4935 17.0419 4.90169 15.7195 4.3527 13.9204C4.61625 13.9744 4.88767 14.0015 5.16523 14.0015C5.55661 14.0015 5.93661 13.9476 6.30085 13.8396C4.32817 13.4258 2.84232 11.5908 2.84232 9.38689C2.84232 9.3599 2.84232 9.35086 2.84232 9.33287C3.4237 9.6657 4.08914 9.87249 4.79573 9.89948C3.63821 9.08089 2.87732 7.68662 2.87732 6.11241C2.87732 5.28482 3.08921 4.50218 3.46221 3.82752C5.58637 6.58014 8.76214 8.38826 12.3424 8.57716C12.2689 8.24433 12.2312 7.89359 12.2312 7.54277C12.2312 5.03303 14.1601 3 16.5399 3C17.7789 3 18.8979 3.5488 19.6833 4.43036C20.6665 4.23246 21.5877 3.85468 22.4212 3.33294C22.0981 4.39441 21.416 5.28478 20.5247 5.8425C21.3968 5.73455 22.2286 5.49186 23 5.13204C22.4212 6.04058 21.6927 6.84106 20.8513 7.47974Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-              </TwitterShareButton>
-
               {member?.role === "owner" ? (
                 <Link href={MyRouter.pixelSettings(pixel?.slug)}>
                   <CogIcon
@@ -237,6 +247,21 @@ export default function Pixel() {
                 )
               )}
             </div>
+            <div className="flex items-center mt-1">
+              <Button
+                onClick={handleShareTwitter}
+                target="_blank"
+                className="flex items-center gap-2"
+              >
+                <svg
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                  class="h-5 w-5 fill-slate-400"
+                >
+                  <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0 0 20 3.92a8.19 8.19 0 0 1-2.357.646 4.118 4.118 0 0 0 1.804-2.27 8.224 8.224 0 0 1-2.605.996 4.107 4.107 0 0 0-6.993 3.743 11.65 11.65 0 0 1-8.457-4.287 4.106 4.106 0 0 0 1.27 5.477A4.073 4.073 0 0 1 .8 7.713v.052a4.105 4.105 0 0 0 3.292 4.022 4.095 4.095 0 0 1-1.853.07 4.108 4.108 0 0 0 3.834 2.85A8.233 8.233 0 0 1 0 16.407a11.615 11.615 0 0 0 6.29 1.84"></path>
+                </svg>
+              </Button>
+            </div>
           </div>
           <div className="flex flex-col 2xl:flex-row 2xl:order-none">
             <div className="2xl:w-1/2 order-last 2xl:order-none">
@@ -251,7 +276,7 @@ export default function Pixel() {
               />
             </div>
             <div className="2xl:w-1/2 flex justify-center">
-              <div className="py-6 md:py-16 flex flex-col items-center">
+              <div className="py-3 md:py-6 flex flex-col items-center">
                 <ColorPalette
                   canDraw={canDraw}
                   selectedColor={selectedColor}

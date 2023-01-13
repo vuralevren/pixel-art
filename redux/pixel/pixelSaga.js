@@ -19,8 +19,6 @@ import pixelService from "./pixelService";
 import { pixelActions } from "./pixelSlice";
 import { uploadFileSaga } from "../file/fileSaga";
 
-// let webWorker;
-
 function* createSaga({ payload: { name, size, onSuccess, onFailure } }) {
   try {
     const user = yield select((state) => state.auth.user);
@@ -32,15 +30,75 @@ function* createSaga({ payload: { name, size, onSuccess, onFailure } }) {
       userProfilePicture: user.profilePicture,
       userSlug: user.slug,
       size,
-      picture: getDefaultPictureBySize(size),
     };
 
-    const { data, errors } = yield call(pixelService.create, body);
+    const { data: pixel, errors } = yield call(pixelService.create, body);
     if (errors) {
       throw errors;
     }
 
-    if (_.isFunction(onSuccess)) onSuccess(data.slug);
+    // const getPhoto = () =>
+    //   new Promise((resolve) => {
+    //     const pixelUrls = {
+    //       16: "/assets/pixel16.png",
+    //       32: "/assets/pixel32.png",
+    //       48: "/assets/pixel48.png",
+    //     };
+
+    //     fetch(pixelUrls[size])
+    //       .then((data) => data.blob())
+    //       .then((blob) => resolve(blob));
+    //   });
+
+    const photo = new Blob();
+
+    const {
+      data: { publicPath },
+      errors: fileErrors,
+    } = yield call(uploadFileSaga, {
+      name: `pixel_${pixel.slug}`,
+      file: photo,
+    });
+    if (fileErrors) {
+      throw fileErrors;
+    }
+
+    const { errors: pictureErrors } = yield call(
+      pixelService.updatePixelPicture,
+      pixel.slug,
+      publicPath
+    );
+    if (pictureErrors) {
+      throw pictureErrors;
+    }
+
+    if (_.isFunction(onSuccess)) onSuccess(pixel.slug);
+  } catch (e) {
+    if (_.isFunction(onFailure)) onFailure(e);
+  }
+}
+
+function* replacePictureSaga({ payload: { pixelSlug, onSuccess, onFailure } }) {
+  try {
+    const canvas = yield call(
+      html2canvas,
+      document.querySelector("#pixel-table")
+    );
+    const blob = yield call((cn) => {
+      return new Promise(function (resolve, reject) {
+        cn.toBlob(function (blob) {
+          resolve(blob);
+        });
+      });
+    }, canvas);
+
+    const { data, errors } = yield call(
+      pixelService.replacePicture,
+      blob,
+      pixelSlug
+    );
+
+    if (_.isFunction(onSuccess)) onSuccess();
   } catch (e) {
     if (_.isFunction(onFailure)) onFailure(e);
   }
@@ -515,5 +573,6 @@ export default function* rootSaga() {
       getPixelDrawersSaga
     ),
     takeLatest(pixelActions.deleteMemberRequest.type, deleteMemberSaga),
+    takeLatest(pixelActions.replacePictureRequest.type, replacePictureSaga),
   ]);
 }
