@@ -140,16 +140,22 @@ export default function Pixel({ pixel }) {
     <div>
       <Head>
         <title>{pixel?.name} | Pixel Art</title>
-        <meta property="twitter:image" content={pixel?.picture} />
-        <meta property="og:image" content={pixel?.picture} />
-        <meta property="og:title" content="Altogic | Developer Card" />
-        <meta property="og:site_name" content="Altogic Developer Network" />
+        <meta
+          property="twitter:image"
+          content={`https://pixel-art-next.vercel.app/api/og-image?link=${pixel?.picture}&name=${pixel?.name}`}
+        />
+        <meta
+          property="og:image"
+          content={`https://pixel-art-next.vercel.app/api/og-image?link=${pixel?.picture}&name=${pixel?.name}`}
+        />
+        <meta property="og:title" content={`${pixel?.name} | Pixel Art`} />
+        <meta property="og:site_name" content={`${pixel?.name} | Pixel Art`} />
         <meta
           property="og:description"
           content="Altogic developer card is a free tool that helps you to create a beautiful developer card for your profile."
         />
         <meta property="og:type" content="website" />
-        <meta property="twitter:title" content="Altogic | Developer Card" />
+        <meta property="twitter:title" content={`${pixel?.name} | Pixel Art`} />
         <meta
           property="twitter:description"
           content="Altogic developer card is a free tool that helps you to create a beautiful developer card for your profile."
