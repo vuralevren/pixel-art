@@ -23,14 +23,15 @@ export default async function handler(req) {
   return new ImageResponse(
     (
       <section
-        style={{ backgroundColor: "#dbe0e0" }}
+        style={{ backgroundColor: "#ea580b" }}
         tw="flex flex-col items-center justify-center w-full h-full"
       >
-        <div tw="flex text-lg">{name} | Pixel Art</div>
+        <div style={{ fontSize: 24 }} tw="flex text-lg text-white">
+          {name} | Altogic Pixel Art
+        </div>
         <div tw="flex my-2">
           <img width={550} height={550} src={link} alt="" />
         </div>
-        <div tw="flex">Altogic</div>
       </section>
     ),
     {
