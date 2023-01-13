@@ -89,7 +89,7 @@ export default function Pixel({ pixel }) {
   const handleShareTwitter = () => {
     function generateTwit() {
       const url = window.location;
-      const link = `${url}`;
+      const link = `${url}?time=${new Date().getTime()}`;
       const text = `We are all the developers of @Altogic. Altogic helps us build applications faster!
     
     You can check out my card here: ${link}`;
@@ -142,11 +142,15 @@ export default function Pixel({ pixel }) {
         <title>{pixel?.name} | Pixel Art</title>
         <meta
           property="twitter:image"
-          content={`https://pixel-art-next.vercel.app/api/og-image?link=${pixel?.picture}&name=${pixel?.name}`}
+          content={`https://pixel-art-next.vercel.app/api/og-image?link=${
+            pixel?.picture
+          }&name=${pixel?.name}&time=${new Date().getTime()}`}
         />
         <meta
           property="og:image"
-          content={`https://pixel-art-next.vercel.app/api/og-image?link=${pixel?.picture}&name=${pixel?.name}`}
+          content={`https://pixel-art-next.vercel.app/api/og-image?link=${
+            pixel?.picture
+          }&name=${pixel?.name}&time=${new Date().getTime()}`}
         />
         <meta property="og:title" content={`${pixel?.name} | Pixel Art`} />
         <meta property="og:site_name" content={`${pixel?.name} | Pixel Art`} />
