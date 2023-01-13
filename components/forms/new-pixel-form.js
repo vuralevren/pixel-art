@@ -80,9 +80,13 @@ export default function NewPixelForm(params) {
               value: 32,
             },
             {
-              label: "64x64",
-              value: 64,
+              label: "48x48",
+              value: 48,
             },
+            // {
+            //   label: "64x64",
+            //   value: 64,
+            // },
           ])}
           setValue={setSize}
           value={size}
