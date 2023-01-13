@@ -1,6 +1,5 @@
 import { ImageResponse } from "@vercel/og";
 import Image from "next/image";
-import ShowPixelTable from "../../components/show-pixel-table";
 
 export const config = {
   runtime: "experimental-edge",
