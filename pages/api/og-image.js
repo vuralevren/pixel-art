@@ -23,7 +23,7 @@ export default async function handler(req) {
   return new ImageResponse(
     (
       <section
-        style={{ backgroundColor: "#ea580b" }}
+        style={{ backgroundColor: "#e39972" }}
         tw="flex flex-col items-center justify-center w-full h-full"
       >
         <div style={{ fontSize: 24 }} tw="flex text-lg text-white">
