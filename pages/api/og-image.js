@@ -1,5 +1,4 @@
 import { ImageResponse } from "@vercel/og";
-import Image from "next/image";
 
 export const config = {
   runtime: "experimental-edge",
@@ -13,12 +12,6 @@ export default async function handler(req) {
   if (!link) {
     return new Response("Missing link", { status: 400 });
   }
-
-  // const data = await getUser(id);
-
-  // if (data.errors) {
-  // 	return new Response('User not found', { status: 404 });
-  // }
 
   return new ImageResponse(
     (
@@ -40,7 +33,6 @@ export default async function handler(req) {
       headers: {
         "Cache-Control": "no-cache",
       },
-      // debug: true,
     }
   );
 }
