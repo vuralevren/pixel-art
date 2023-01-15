@@ -1,10 +1,23 @@
 import _ from "lodash";
 import cs from "classnames";
 import ColorPicker from "./color-picker";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { colorActions } from "../redux/color/colorSlice";
 import { useRouter } from "next/router";
+
+const DEFAULT_COLORS = [
+  "#001219",
+  "#fff",
+  "#005f73",
+  "#0a9396",
+  "#94d2bd",
+  "#e9d8a6",
+  "#ee9b00",
+  "#ca6702",
+  "#bb3e03",
+  "#ae2012",
+  "#9b2226",
+];
 
 export default function ColorPalette({
   selectedColor,
@@ -14,18 +27,19 @@ export default function ColorPalette({
   const router = useRouter();
   const { pixelSlug } = router.query;
   const dispatch = useDispatch();
-  const colors = useSelector((state) => _.get(state.color.colors, pixelSlug));
+  const [colors, setColors] = useState(_.cloneDeep(DEFAULT_COLORS));
 
   const handleNewColor = (hex) => {
     setSelectedColor(hex);
-    dispatch(colorActions.addColor({ key: pixelSlug, value: hex }));
+    setColors([...colors, hex]);
+    localStorage.setItem(pixelSlug, JSON.stringify([...colors, hex]));
   };
 
   useEffect(() => {
-    if (!colors) {
-      dispatch(colorActions.setColors({ key: pixelSlug }));
-    }
-  }, [colors]);
+    const colorList = JSON.parse(localStorage.getItem(pixelSlug));
+
+    if (colorList) setColors(colorList);
+  }, []);
 
   return (
     <div className="grid grid-cols-4 gap-4">

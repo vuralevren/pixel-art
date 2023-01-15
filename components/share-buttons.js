@@ -41,7 +41,7 @@ function ShareButtons({ customLink, backgroundColor, beforeOnClick }) {
         >
           <a className={bgColor}>
             <svg
-              className="w-6 h-6 text-slate-400"
+              className="w-6 h-6 text-gray-400 hover:text-gray-500"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ function ShareButtons({ customLink, backgroundColor, beforeOnClick }) {
         >
           <a className={bgColor}>
             <svg
-              className="w-6 h-6 text-slate-400"
+              className="w-6 h-6 text-gray-400 hover:text-gray-500"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@ function ShareButtons({ customLink, backgroundColor, beforeOnClick }) {
         >
           <a className={bgColor}>
             <svg
-              className="w-6 h-6 text-slate-400"
+              className="w-6 h-6 text-gray-400 hover:text-gray-500"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@ function ShareButtons({ customLink, backgroundColor, beforeOnClick }) {
       <li>
         <Button onClick={copyToClipboard} className={bgColor}>
           <svg
-            className="w-6 h-6 text-slate-400"
+            className="w-6 h-6 text-gray-400 hover:text-gray-500"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

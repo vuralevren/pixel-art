@@ -158,7 +158,7 @@ export default function Pixel({ pixel }) {
         <meta name="twitter:site" content="@Altogic" />
         <meta name="twitter:creator" content="Altogic" />
       </Head>
-      <Navbar />
+      <Navbar ssr />
 
       {loading ? (
         <div className="items-center flex flex-col mt-24">

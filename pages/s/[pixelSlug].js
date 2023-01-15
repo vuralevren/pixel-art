@@ -108,10 +108,10 @@ export default function PixelSettings() {
     const { value } = e.target;
     setSearchText(value);
 
-    if (_.size(value) > 2) {
-      getMemberList(searchText, true, true);
-    } else if (_.size(value) === 0) {
+    if (_.size(value) === 0) {
       getMemberList("", true);
+    } else {
+      getMemberList(searchText, true, true);
     }
   };
 

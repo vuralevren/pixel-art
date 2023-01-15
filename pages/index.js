@@ -9,6 +9,7 @@ import Divider from "../components/divider";
 import MyArts from "../components/my-arts";
 import Navbar from "../components/navbar";
 import _ from "lodash";
+import NewPixelModal from "../components/modals/new-pixel-modal";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export default function Home() {
   const globalPixelList = useArraySelector(({ pixel }) => pixel.globalPixels);
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showNewModal, setShowNewModal] = useState(false);
 
   useEffect(() => {
     getGlobalPixels("", true);
@@ -68,23 +70,23 @@ export default function Home() {
     const { value } = e.target;
     setSearchText(value);
 
-    if (_.size(value) > 2) {
-      getGlobalPixels(searchText, true, true);
-    } else if (_.size(value) === 0) {
+    if (_.size(value) === 0) {
       getGlobalPixels("", true);
+    } else {
+      getGlobalPixels(searchText, true, true);
     }
   };
 
   return (
     <>
-      <Navbar />
+      <Navbar newArt={() => setShowNewModal(true)} />
       <Container>
-        {user && (
+        {/* {user && (
           <>
             <MyArts />
             <Divider />
           </>
-        )}
+        )} */}
 
         <ArtList
           title="All Arts"
@@ -94,6 +96,8 @@ export default function Home() {
           loading={loading}
           getList={getGlobalPixels}
         />
+
+        <NewPixelModal show={showNewModal} setShow={setShowNewModal} />
       </Container>
     </>
   );
