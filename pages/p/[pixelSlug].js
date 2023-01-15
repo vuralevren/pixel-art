@@ -87,39 +87,23 @@ export default function Pixel({ pixel }) {
     navigator.clipboard.writeText(url);
   };
 
-  const handleShareTwitter = () => {
-    function generateTwit() {
-      const url = window.location;
-      const link = `${url}?utm_source=twitter&utm_medium=share_card&share_time=${new Date().getTime()}/`;
-      const text = `We are all the developers of @Altogic. Altogic helps us build applications faster!
-    
-    You can check out my card here: ${link}`;
-      return encodeURIComponent(text);
-    }
-
-    setLoading(true);
-    dispatch(
-      pixelActions.replacePictureRequest({
-        pixelSlug,
-        onSuccess: () => {
-          setLoading(false);
-          window?.open(
-            `https://twitter.com/intent/tweet?text=${generateTwit()}`,
-            "_blank"
-          );
-        },
-        onFailure: () => {
-          setLoading(false);
-        },
-      })
-    );
-    // window?.open(
-    //   `https://twitter.com/intent/tweet?text=${generateTwit(
-    //     user._id
-    //   )}`,
-    //   "_blank"
-    // )
-  };
+  const beforeOnClick = () =>
+    new Promise((resolve) => {
+      setLoading(true);
+      dispatch(
+        pixelActions.replacePictureRequest({
+          pixelSlug,
+          onSuccess: () => {
+            setLoading(false);
+            resolve();
+          },
+          onFailure: () => {
+            setLoading(false);
+            resolve();
+          },
+        })
+      );
+    });
 
   const leavePixel = () => {
     setIsLoading(true);
@@ -183,107 +167,72 @@ export default function Pixel({ pixel }) {
       ) : (
         <div className="max-w-full mx-auto px-4 sm:px-6 md:px-8">
           <div className="flex flex-col items-center justify-center mt-8">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-center">
-              {pixel?.name}
-            </h2>
-            <div className="flex items-center mt-1">
+            <div className="flex items-center">
+              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-center">
+                {pixel?.name}
+              </h2>
               {canDraw && (
-                <button
-                  type="button"
-                  className="w-6 h-6 rounded-full inline-flex items-center justify-center text-gray-400 hover:text-gray-500"
-                  onClick={() => setAddMembersShow(true)}
-                >
-                  <span className="sr-only">Add Member</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"
-                    />
-                  </svg>
-                </button>
-              )}
-
-              <button
-                type="button"
-                className="ml-2 w-6 h-6 rounded-full inline-flex items-center justify-center text-gray-400 hover:text-gray-500"
-                onClick={copyCode}
-              >
-                <span className="sr-only">Info</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
-                  />
-                </svg>
-              </button>
-              {member?.role === "owner" ? (
-                <Link href={MyRouter.pixelSettings(pixel?.slug)}>
-                  <CogIcon
-                    className="ml-2 w-6 h-6 rounded-full inline-flex items-center justify-center text-gray-400 hover:text-gray-500"
-                    aria-hidden="true"
-                  />
-                </Link>
-              ) : (
-                member?.role === "editor" && (
+                <div className="flex items-center ml-2 mt-1">
                   <button
-                    className="ml-2"
-                    onClick={() =>
-                      setLeftPixel({
-                        pixelId: pixel?._id,
-                        pixelSlug: pixel?.slug,
-                      })
-                    }
+                    type="button"
+                    className="w-6 h-6 rounded-full inline-flex items-center justify-center text-gray-400 hover:text-gray-500"
+                    onClick={() => setAddMembersShow(true)}
                   >
+                    <span className="sr-only">Add Member</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-6 h-6 text-gray-400 hover:text-gray-500"
+                      className="w-6 h-6"
                     >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"
                       />
                     </svg>
                   </button>
-                )
+                  {member?.role === "owner" ? (
+                    <Link href={MyRouter.pixelSettings(pixel?.slug)}>
+                      <CogIcon
+                        className="ml-2 w-6 h-6 rounded-full inline-flex items-center justify-center text-gray-400 hover:text-gray-500"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  ) : (
+                    member?.role === "editor" && (
+                      <button
+                        className="ml-2"
+                        onClick={() =>
+                          setLeftPixel({
+                            pixelId: pixel?._id,
+                            pixelSlug: pixel?.slug,
+                          })
+                        }
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-6 h-6 text-gray-400 hover:text-gray-500"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </button>
+                    )
+                  )}
+                </div>
               )}
             </div>
-            <ShareButtons className="mt-12" />
-            {/* <div className="flex items-center mt-1">
-              <Button
-                onClick={handleShareTwitter}
-                target="_blank"
-                className="flex items-center gap-2"
-              >
-                <svg
-                  viewBox="0 0 20 20"
-                  aria-hidden="true"
-                  class="h-5 w-5 fill-slate-400"
-                >
-                  <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0 0 20 3.92a8.19 8.19 0 0 1-2.357.646 4.118 4.118 0 0 0 1.804-2.27 8.224 8.224 0 0 1-2.605.996 4.107 4.107 0 0 0-6.993 3.743 11.65 11.65 0 0 1-8.457-4.287 4.106 4.106 0 0 0 1.27 5.477A4.073 4.073 0 0 1 .8 7.713v.052a4.105 4.105 0 0 0 3.292 4.022 4.095 4.095 0 0 1-1.853.07 4.108 4.108 0 0 0 3.834 2.85A8.233 8.233 0 0 1 0 16.407a11.615 11.615 0 0 0 6.29 1.84"></path>
-                </svg>
-              </Button>
-            </div> */}
+            <ShareButtons className="mt-12" beforeOnClick={beforeOnClick} />
           </div>
           <div className="flex flex-col 2xl:flex-row 2xl:order-none">
             <div className="2xl:w-1/2 order-last 2xl:order-none">

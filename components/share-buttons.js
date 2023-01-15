@@ -9,7 +9,7 @@ import {
 import { toast } from "react-toastify";
 import Button from "./button";
 
-function ShareButtons({ customLink, backgroundColor }) {
+function ShareButtons({ customLink, backgroundColor, beforeOnClick }) {
   const router = useRouter();
   const bgColor = `inline-flex items-center justify-center p-3 rounded-lg transition ease-in-out duration-200${
     backgroundColor === "purple"
@@ -37,6 +37,7 @@ function ShareButtons({ customLink, backgroundColor }) {
       <li>
         <TwitterShareButton
           url={`${shareUrl}?share_time=${new Date().getTime()}/`}
+          beforeOnClick={beforeOnClick}
         >
           <a className={bgColor}>
             <svg
@@ -58,6 +59,7 @@ function ShareButtons({ customLink, backgroundColor }) {
       <li>
         <FacebookShareButton
           url={`${shareUrl}?share_time=${new Date().getTime()}/`}
+          beforeOnClick={beforeOnClick}
         >
           <a className={bgColor}>
             <svg
@@ -79,6 +81,7 @@ function ShareButtons({ customLink, backgroundColor }) {
       <li>
         <LinkedinShareButton
           url={`${shareUrl}?share_time=${new Date().getTime()}/`}
+          beforeOnClick={beforeOnClick}
         >
           <a className={bgColor}>
             <svg
