@@ -46,7 +46,7 @@ export default function Navbar({ ssr, newArt }) {
               <div className="lg:block lg:w-80">
                 <div className="flex items-center justify-end">
                   <div className="flex-shrink-0">
-                    {newArt && (
+                    {newArt && user && (
                       <button
                         type="button"
                         className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600"
