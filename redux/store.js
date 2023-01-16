@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
-import storage from "redux-persist/lib/storage";
 import { createWrapper } from "next-redux-wrapper";
 import rootSaga from "./rootSaga";
 
