@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 export default function Divider() {
   return (
     <div className="relative py-8">

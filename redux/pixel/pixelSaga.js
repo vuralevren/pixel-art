@@ -4,7 +4,6 @@ import {
   all,
   call,
   debounce,
-  fork,
   put,
   select,
   takeLatest,
@@ -12,10 +11,10 @@ import {
 import { ArtEventType } from "../../functions/constants";
 import createPallette from "../../functions/createPallette";
 import { InvitationEventType } from "../../functions/hooks/useInivitationRealtime";
+import { uploadFileSaga } from "../file/fileSaga";
 import realtimeService from "../realtime/realtimeService";
 import pixelService from "./pixelService";
 import { pixelActions } from "./pixelSlice";
-import { uploadFileSaga } from "../file/fileSaga";
 
 function* createSaga({ payload: { name, size, onSuccess, onFailure } }) {
   try {

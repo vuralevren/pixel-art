@@ -6,7 +6,6 @@ import ArtList from "../../components/art-list";
 import Container from "../../components/container";
 import NewPixelModal from "../../components/modals/new-pixel-modal";
 import Navbar from "../../components/navbar";
-import getNameBySlug from "../../functions/getNameBySlug";
 import useArraySelector from "../../functions/hooks/useArraySelector";
 import { pixelActions } from "../../redux/pixel/pixelSlice";
 

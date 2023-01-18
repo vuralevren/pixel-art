@@ -1,19 +1,15 @@
-"use client";
+import _ from "lodash";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { pixelActions } from "../redux/pixel/pixelSlice";
-import useArraySelector from "../functions/hooks/useArraySelector";
+import { useDispatch } from "react-redux";
 import ArtList from "../components/art-list";
 import Container from "../components/container";
-import Divider from "../components/divider";
-import MyArts from "../components/my-arts";
-import Navbar from "../components/navbar";
-import _ from "lodash";
 import NewPixelModal from "../components/modals/new-pixel-modal";
+import Navbar from "../components/navbar";
+import useArraySelector from "../functions/hooks/useArraySelector";
+import { pixelActions } from "../redux/pixel/pixelSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.user);
   const globalPixelList = useArraySelector(({ pixel }) => pixel.globalPixels);
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);

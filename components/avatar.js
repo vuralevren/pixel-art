@@ -1,5 +1,4 @@
 import cs from "classnames";
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const fontSize = (size) => {

@@ -38,7 +38,6 @@ export default function Pixel({ pixel }) {
   const members = useArraySelector((state) => state.pixel.members);
   const member = _.find(members, (mem) => mem.userId === user?._id);
   const canDraw = member && ["owner", "editor"].includes(member?.role);
-  // const pixel = useSelector((state) => _.get(state.pixel.pixels, pixelSlug));
   const dispatch = useDispatch();
   const [leftPixel, setLeftPixel] = useState(null);
   const [addMembersShow, setAddMembersShow] = useState(false);
@@ -72,12 +71,6 @@ export default function Pixel({ pixel }) {
 
   const saveCanvasToDisk = (blob, fileExtension) => {
     saveAs(blob, `${pixel?.name}.${fileExtension}`);
-  };
-
-  const copyCode = () => {
-    toast.success("Link's copied");
-    const url = window.location;
-    navigator.clipboard.writeText(url);
   };
 
   const beforeOnClick = () =>

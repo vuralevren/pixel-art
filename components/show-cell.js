@@ -1,5 +1,4 @@
 import cs from "classnames";
-import { getClassNamesShowPalletteBySize } from "../functions/createPallette";
 
 export default function ShowCell({ indexKey, color, size }) {
   return (
