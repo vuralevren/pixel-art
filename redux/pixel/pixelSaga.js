@@ -10,9 +10,7 @@ import {
   takeLatest,
 } from "redux-saga/effects";
 import { ArtEventType } from "../../functions/constants";
-import createPallette, {
-  getDefaultPictureBySize,
-} from "../../functions/createPallette";
+import createPallette from "../../functions/createPallette";
 import { InvitationEventType } from "../../functions/hooks/useInivitationRealtime";
 import realtimeService from "../realtime/realtimeService";
 import pixelService from "./pixelService";
@@ -36,19 +34,6 @@ function* createSaga({ payload: { name, size, onSuccess, onFailure } }) {
     if (errors) {
       throw errors;
     }
-
-    // const getPhoto = () =>
-    //   new Promise((resolve) => {
-    //     const pixelUrls = {
-    //       16: "/assets/pixel16.png",
-    //       32: "/assets/pixel32.png",
-    //       48: "/assets/pixel48.png",
-    //     };
-
-    //     fetch(pixelUrls[size])
-    //       .then((data) => data.blob())
-    //       .then((blob) => resolve(blob));
-    //   });
 
     const photo = new Blob();
 
@@ -149,15 +134,9 @@ function* getConnectionBySlugSaga({
 
 function* savePixelSaga({ payload: { slug, onSuccess, onFailure } }) {
   try {
-    // yield fork(savePictureWithWorker, slug);
     const pixelPallette = yield select((state) => state.pixel.pixel);
 
-    // webWorker.postMessage({
-    //   slug,
-    //   pallette: JSON.stringify(pixelPallette),
-    // });
-
-    const { data, errors } = yield call(
+    const { errors } = yield call(
       pixelService.draw,
       slug,
       JSON.stringify(pixelPallette)
@@ -168,95 +147,7 @@ function* savePixelSaga({ payload: { slug, onSuccess, onFailure } }) {
 
     if (_.isFunction(onSuccess)) onSuccess();
   } catch (e) {
-    console.error(e);
     if (_.isFunction(onFailure)) onFailure(e);
-  }
-}
-
-function* savePictureWithWorker(slug) {
-  const canvas = yield call(
-    html2canvas,
-    document.querySelector("#pixel-table")
-  );
-  const blob = yield call((cn) => {
-    return new Promise(function (resolve, reject) {
-      cn.toBlob(function (blob) {
-        resolve(blob);
-      });
-    });
-  }, canvas);
-
-  // const { errors: pictureErrors } = yield call(
-  //   pixelService.changePixelPicture,
-  //   slug,
-  //   `pixel_${slug}`,
-  //   blob
-  // );
-  // console.log({ pictureErrors });
-  // webWorker.postMessage({
-  //   slug,
-  //   blob,
-  // });
-}
-
-function* savePictureSaga(pixelSlug) {
-  try {
-    const canvas = yield call(
-      html2canvas,
-      document.querySelector("#pixel-table")
-    );
-    const blob = yield call((cn) => {
-      return new Promise(function (resolve, reject) {
-        cn.toBlob(function (blob) {
-          resolve(blob);
-        });
-      });
-    }, canvas);
-
-    const {
-      data: { publicPath },
-      errors: fileErrors,
-    } = yield call(uploadFileSaga, { name: `pixel_${pixelSlug}`, file: blob });
-    if (fileErrors) {
-      throw fileErrors;
-    }
-
-    const { errors: pictureErrors } = yield call(
-      pixelService.updatePixelPicture,
-      pixelSlug,
-      publicPath
-    );
-    if (pictureErrors) {
-      throw pictureErrors;
-    }
-
-    const globalPixel = yield select(({ pixel }) =>
-      _.get(pixel.globalPixels, pixelSlug)
-    );
-    yield put(
-      pixelActions.updateGlobalPixels({
-        key: pixelSlug,
-        value: {
-          ...globalPixel,
-          picture: publicPath,
-        },
-      })
-    );
-
-    const userArt = yield select(({ pixel }) =>
-      _.get(pixel.userArts, pixelSlug)
-    );
-    yield put(
-      pixelActions.updateUserArt({
-        key: pixelSlug,
-        value: {
-          ...userArt,
-          pixelPicture: publicPath,
-        },
-      })
-    );
-  } catch (e) {
-    console.error({ e });
   }
 }
 
@@ -546,7 +437,6 @@ function* deleteMemberSaga({
 }
 
 export default function* rootSaga() {
-  // webWorker = new Worker(new URL("../../functions/worker", import.meta.url));
   yield all([
     takeLatest(pixelActions.createRequest.type, createSaga),
     takeLatest(pixelActions.getPixelBySlugRequest.type, getPixelBySlugSaga),

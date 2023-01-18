@@ -8,10 +8,8 @@ const realtimeService = {
   sendMessage: (channel, event, message) =>
     realtime.send(channel, event, message),
 
-  isConnected: () => realtime.isConnected(),
   updateProfile: (user) => realtime.updateProfile(user),
   getMembers: (channel) => realtime.getMembers(channel),
-  open: () => realtime.open(),
 };
 
 export default realtimeService;

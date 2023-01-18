@@ -29,7 +29,6 @@ function* drawSaga({ payload: { pixelSlug, x, y, drawColor } }) {
 function* listenSocket(socketChannel) {
   while (true) {
     try {
-      // An error from socketChannel will cause the saga jump to the catch block
       const { data, sent, type } = yield take(socketChannel);
 
       switch (type) {
@@ -187,7 +186,13 @@ function createSocketChannel() {
     realtimeService.listen(ArtEventType.REMOVE_MEMBER, removeMemberHandler);
 
     const unsubscribe = () => {
-      realtimeService.removeListen(ArtEventType.DRAW, drawHandler);
+      realtimeService.removeListen(ArtEventType.DRAW);
+      realtimeService.removeListen("channel:join");
+      realtimeService.removeListen("channel:update");
+      realtimeService.removeListen("channel:leave");
+      realtimeService.removeListen(ArtEventType.DELETED);
+      realtimeService.removeListen(ArtEventType.UPDATED_NAME);
+      realtimeService.removeListen(ArtEventType.REMOVE_MEMBER);
     };
 
     return unsubscribe;

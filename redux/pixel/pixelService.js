@@ -73,12 +73,6 @@ const pixelService = {
   updatePixelPicture(pixelSlug, publicPath) {
     return endpoint.post("/pixel/picture", { pixelSlug, publicPath });
   },
-  changePixelPicture(pixelSlug, fileName, file) {
-    return endpoint.put("/pixel/changePicture", file, {
-      pixelSlug,
-      name: fileName,
-    });
-  },
   replacePicture(file, pixelSlug) {
     return endpoint.post("/pixel/replacePicture", file, {
       pixelSlug,

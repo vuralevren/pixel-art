@@ -8,8 +8,6 @@ import { useEffect } from "react";
 import NoSSR from "react-no-ssr";
 import WrapApp from "../components/wrap-app";
 
-const isSSR = () => typeof window === "undefined";
-
 function App({ Component, pageProps }) {
   const router = useRouter();
   const user = useSelector((state) => state.auth.user);

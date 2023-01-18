@@ -1,9 +1,8 @@
-import _ from "lodash";
 import cs from "classnames";
-import ColorPicker from "./color-picker";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import _ from "lodash";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import ColorPicker from "./color-picker";
 
 const DEFAULT_COLORS = [
   "#001219",
@@ -26,13 +25,15 @@ export default function ColorPalette({
 }) {
   const router = useRouter();
   const { pixelSlug } = router.query;
-  const dispatch = useDispatch();
   const [colors, setColors] = useState(_.cloneDeep(DEFAULT_COLORS));
 
   const handleNewColor = (hex) => {
     setSelectedColor(hex);
-    setColors([...colors, hex]);
-    localStorage.setItem(pixelSlug, JSON.stringify([...colors, hex]));
+
+    if (!_.includes(colors, hex)) {
+      setColors([...colors, hex]);
+      localStorage.setItem(pixelSlug, JSON.stringify([...colors, hex]));
+    }
   };
 
   useEffect(() => {

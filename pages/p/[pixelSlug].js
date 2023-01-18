@@ -1,32 +1,25 @@
-import { CogIcon, LinkIcon, UserAddIcon } from "@heroicons/react/outline";
-import { useRouter } from "next/router";
+import { CogIcon } from "@heroicons/react/outline";
 import { saveAs } from "file-saver";
 import html2canvas from "html2canvas";
 import _ from "lodash";
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import ColorPalette from "../../components/color-palette";
 import MemberList from "../../components/member-list";
-import Navbar from "../../components/navbar";
-import PixelTable from "../../components/pixel-table";
-import { pixelActions } from "../../redux/pixel/pixelSlice";
-import { MyRouter } from "../../routes";
-import useArraySelector from "../../functions/hooks/useArraySelector";
-import cs from "classnames";
 import AddTeamMembersModal from "../../components/modals/add-team-members-modal";
 import LeaveTeamModal from "../../components/modals/leave-team-modal";
-import { ClipLoader } from "react-spinners";
-import Link from "next/link";
-import pixelService from "../../redux/pixel/pixelService";
-import {
-  FacebookShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-} from "react-share";
-import Head from "next/head";
-import Button from "../../components/button";
+import Navbar from "../../components/navbar";
+import PixelTable from "../../components/pixel-table";
 import ShareButtons from "../../components/share-buttons";
+import useArraySelector from "../../functions/hooks/useArraySelector";
+import pixelService from "../../redux/pixel/pixelService";
+import { pixelActions } from "../../redux/pixel/pixelSlice";
+import { MyRouter } from "../../routes";
 
 export default function Pixel({ pixel }) {
   const router = useRouter();
