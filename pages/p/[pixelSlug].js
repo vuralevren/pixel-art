@@ -148,7 +148,7 @@ export default function Pixel({ pixel }) {
 
       {loading ? (
         <div className="items-center flex flex-col mt-24">
-          <ClipLoader color="orange" loading={loading} size={120} />
+          <ClipLoader color="violet" loading={loading} size={120} />
         </div>
       ) : (
         <div className="max-w-full mx-auto px-4 sm:px-6 md:px-8">
@@ -241,7 +241,7 @@ export default function Pixel({ pixel }) {
                 />
                 <button
                   type="button"
-                  className="mt-12 inline-flex items-center px-24 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                  className="mt-12 inline-flex items-center px-24 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
                   onClick={download}
                 >
                   Download

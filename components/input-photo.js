@@ -18,7 +18,7 @@ export default function InputPhoto({
       </label>
       <div className="mt-1 flex items-center">
         {loading ? (
-          <ClipLoader color="orange" size={45} />
+          <ClipLoader color="violet" size={45} />
         ) : (
           <span className="inline-block bg-gray-100 rounded-full overflow-hidden h-12 w-12">
             {value ? (

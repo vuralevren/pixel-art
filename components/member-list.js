@@ -68,7 +68,7 @@ export default function MemberList() {
                   <div className="space-y-2">
                     <div className="text-xs font-medium lg:text-sm">
                       <h3>{member?.name || "Anonymous"}</h3>
-                      <p className="text-orange-600">
+                      <p className="text-violet-600">
                         {convertToTitle(member?.role) || "Viewer"}
                       </p>
                     </div>

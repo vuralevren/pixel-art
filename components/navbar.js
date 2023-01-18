@@ -29,7 +29,7 @@ export default function Navbar({ ssr, newArt }) {
   };
 
   return (
-    <Disclosure as="nav" className="flex-shrink-0 bg-orange-600">
+    <Disclosure as="nav" className="flex-shrink-0 bg-violet-600">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
@@ -49,7 +49,7 @@ export default function Navbar({ ssr, newArt }) {
                     {newArt && user && (
                       <button
                         type="button"
-                        className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600"
+                        className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700"
                         onClick={newArt}
                       >
                         <PlusSmIcon
@@ -62,7 +62,7 @@ export default function Navbar({ ssr, newArt }) {
                   </div>
                   {user ? (
                     <Menu as="div" className="ml-4 relative flex-shrink-0">
-                      <Menu.Button className="bg-orange-700 flex text-sm rounded-full text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-700 focus:ring-white">
+                      <Menu.Button className="bg-violet-700 flex text-sm rounded-full text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-violet-700 focus:ring-white">
                         <span className="sr-only">Open user menu</span>
                         <Avatar size={10} className="w-10 h-10" />
                       </Menu.Button>
@@ -121,12 +121,12 @@ export default function Navbar({ ssr, newArt }) {
                   ) : (
                     <>
                       <Link href="/sign-in">
-                        <Button className="block w-full py-1 px-2 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-orange-700 hover:bg-gray-50 sm:inline-block sm:w-auto mr-2">
+                        <Button className="block w-full py-1 px-2 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-violet-700 hover:bg-gray-50 sm:inline-block sm:w-auto mr-2">
                           Login
                         </Button>
                       </Link>
                       <Link href="/create-an-account">
-                        <Button className="hidden md:block w-full py-1 px-2 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-orange-700 hover:bg-gray-50 sm:inline-block sm:w-auto">
+                        <Button className="hidden md:block w-full py-1 px-2 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-violet-700 hover:bg-gray-50 sm:inline-block sm:w-auto">
                           Register
                         </Button>
                       </Link>

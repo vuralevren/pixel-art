@@ -83,7 +83,7 @@ export default function SettingsProfileForm() {
         <div className="px-4 py-3 bg-gray-100 text-right sm:px-6">
           <Button
             type="submit"
-            className="bg-orange-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            className="bg-violet-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
             loading={isLoading}
           >
             Save

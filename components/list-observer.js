@@ -23,7 +23,7 @@ function ListObserver({ onEnd, loading, children }) {
   return (
     <>
       {loading ? (
-        <ClipLoader color="orange" loading={loading} size={80} />
+        <ClipLoader color="violet" loading={loading} size={80} />
       ) : (
         <>{children}</>
       )}

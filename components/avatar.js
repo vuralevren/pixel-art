@@ -37,7 +37,7 @@ export default function Avatar({ size, anotherUser }) {
           ) : (
             <span
               className={cs([
-                "inline-flex items-center justify-center rounded-full bg-orange-900",
+                "inline-flex items-center justify-center rounded-full bg-violet-900",
                 `h-${size} w-${size}`,
               ])}
             >

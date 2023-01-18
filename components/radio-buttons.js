@@ -19,9 +19,9 @@ export default function RadioButtons({ options, value, setValue }) {
               className={({ active, checked }) =>
                 classNames(
                   "cursor-pointer focus:outline-none",
-                  active ? "ring-2 ring-offset-2 ring-orange-500" : "",
+                  active ? "ring-2 ring-offset-2 ring-violet-500" : "",
                   checked
-                    ? "bg-orange-600 border-transparent text-white hover:bg-orange-700"
+                    ? "bg-violet-600 border-transparent text-white hover:bg-violet-700"
                     : "bg-white border-gray-200 text-gray-900 hover:bg-gray-50",
                   "border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1"
                 )

@@ -52,7 +52,7 @@ function Input({
           {textArea ? (
             <textarea
               id={id}
-              className={`appearance-none block w-full h-full px-3 py-3 text-slate-500 border border-gray-300 shadow-sm placeholder-slate-500 focus:outline-none focus:ring-orange-500 focus:border-orange-500 ${
+              className={`appearance-none block w-full h-full px-3 py-3 text-slate-500 border border-gray-300 shadow-sm placeholder-slate-500 focus:outline-none focus:ring-violet-500 focus:border-violet-500 ${
                 error &&
                 "border-red-600 text-red-900 placeholder-red-300 focus:ring-red-600"
               } ${!prefix ? "rounded-md" : ""} ${className}`}
@@ -65,7 +65,7 @@ function Input({
               id={id}
               className={cs([
                 !newStyle &&
-                  "appearance-none block w-full h-full px-3 py-3 text-slate-500 border border-gray-300 shadow-sm placeholder-slate-500 focus:outline-none focus:ring-orange-500 focus:border-orange-500",
+                  "appearance-none block w-full h-full px-3 py-3 text-slate-500 border border-gray-300 shadow-sm placeholder-slate-500 focus:outline-none focus:ring-violet-500 focus:border-violet-500",
                 error &&
                   "border-red-600 text-red-900 placeholder-red-300 focus:ring-red-600",
                 !prefix ? "rounded-md" : "",

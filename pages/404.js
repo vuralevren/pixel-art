@@ -5,7 +5,7 @@ export default function NotFound() {
     <div className="min-h-full px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8 pb-96">
       <div className="max-w-max mx-auto">
         <main className="sm:flex">
-          <p className="text-4xl font-extrabold text-orange-600 sm:text-5xl">
+          <p className="text-4xl font-extrabold text-violet-600 sm:text-5xl">
             404
           </p>
           <div className="sm:ml-6">
@@ -20,7 +20,7 @@ export default function NotFound() {
             <div className="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6">
               <Link
                 href="/"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
               >
                 Go back home
               </Link>

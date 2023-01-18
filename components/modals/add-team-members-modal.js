@@ -125,7 +125,7 @@ export default function AddTeamMembersModal({ show, setShow }) {
               </div>
               <Button
                 type="submit"
-                className="bg-orange-500 border border-transparent rounded-md py-2.5 px-3 ml-3 flex items-center justify-center text-sm font-medium text-white hover:bg-orange-600"
+                className="bg-violet-500 border border-transparent rounded-md py-2.5 px-3 ml-3 flex items-center justify-center text-sm font-medium text-white hover:bg-violet-600"
                 loading={isLoading}
               >
                 Send invite
@@ -168,7 +168,7 @@ export default function AddTeamMembersModal({ show, setShow }) {
                     <div className="flex-shrink-0">
                       <Button
                         type="button"
-                        className="inline-flex items-center py-2 px-3 border border-transparent rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                        className="inline-flex items-center py-2 px-3 border border-transparent rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
                         loading={isLoadingSug}
                         onClick={() => sendInviteToRegisteredUser(person.email)}
                       >

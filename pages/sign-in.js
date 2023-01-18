@@ -129,7 +129,7 @@ export default function SignIn() {
                   <div className="flex items-center justify-center">
                     <div className="text-sm">
                       <Link
-                        className="font-medium text-orange-700 tracking-sm hover:text-orange-500"
+                        className="font-medium text-violet-700 tracking-sm hover:text-violet-500"
                         href="/forgot-password"
                       >
                         Forgot your password?
@@ -140,7 +140,7 @@ export default function SignIn() {
                   <div className="text-center">
                     <Button
                       type="submit"
-                      className="w-full flex mb-4 justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                      className="w-full flex mb-4 justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
                       loading={isLoading}
                     >
                       Sign in
@@ -151,7 +151,7 @@ export default function SignIn() {
                   Don&apos;t have an account yet?{" "}
                   <Link
                     href="/create-an-account"
-                    className="font-medium text-orange-700 tracking-sm hover:text-orange-500"
+                    className="font-medium text-violet-700 tracking-sm hover:text-violet-500"
                   >
                     Create an account.
                   </Link>

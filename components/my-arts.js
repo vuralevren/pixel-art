@@ -79,7 +79,7 @@ export default function MyArts() {
 
         <Link
           href={MyRouter.userArts(user?.slug)}
-          className="hidden sm:block text-sm font-semibold text-orange-600 hover:text-orange-500"
+          className="hidden sm:block text-sm font-semibold text-violet-600 hover:text-violet-500"
         >
           See everything<span aria-hidden="true"> &rarr;</span>
         </Link>
@@ -91,7 +91,7 @@ export default function MyArts() {
             {_.isEmpty(sortedUserArts) ? (
               loading ? (
                 <div className="items-center flex flex-col">
-                  <ClipLoader color="orange" loading={loading} size={120} />
+                  <ClipLoader color="violet" loading={loading} size={120} />
                 </div>
               ) : (
                 <Empty message="There are no arts" />
@@ -130,7 +130,7 @@ export default function MyArts() {
       <div className="mt-12 flex px-4 sm:hidden">
         <Link
           href={MyRouter.userArts(user?.slug)}
-          className="text-sm font-semibold text-orange-600 hover:text-orange-500"
+          className="text-sm font-semibold text-violet-600 hover:text-violet-500"
         >
           See everything<span aria-hidden="true"> &rarr;</span>
         </Link>

@@ -96,7 +96,7 @@ export default function NewPixelForm(params) {
       <div className="flex justify-center mt-6">
         <Button
           type="submit"
-          className="bg-orange-600 border w-full border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-md font-medium text-white hover:bg-orange-700"
+          className="bg-violet-600 border w-full border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-md font-medium text-white hover:bg-violet-700"
           loading={isLoading}
         >
           Create

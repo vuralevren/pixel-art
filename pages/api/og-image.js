@@ -7,7 +7,6 @@ export const config = {
 export default async function handler(req) {
   const { searchParams } = new URL(req.url || "");
   const link = searchParams.get("link");
-  const name = searchParams.get("name");
 
   if (!link) {
     return new Response("Missing link", { status: 400 });
@@ -16,14 +15,11 @@ export default async function handler(req) {
   return new ImageResponse(
     (
       <section
-        style={{ backgroundColor: "#e39972" }}
+        style={{ backgroundColor: "#4c1d95" }}
         tw="flex flex-col items-center justify-center w-full h-full"
       >
-        <div style={{ fontSize: 24 }} tw="flex text-lg text-white">
-          {name} | Altogic Pixel Art
-        </div>
         <div tw="flex my-2">
-          <img width={550} height={550} src={link} alt="" />
+          <img width={600} height={600} src={link} alt="" />
         </div>
       </section>
     ),

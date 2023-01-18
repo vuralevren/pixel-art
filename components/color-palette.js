@@ -52,7 +52,7 @@ export default function ColorPalette({
             "w-8 h-8 md:w-12 md:h-12",
             color === selectedColor &&
               canDraw &&
-              "outline outline-4 outline-orange-500",
+              "outline outline-4 outline-violet-500",
             !canDraw && "cursor-not-allowed",
           ])}
           style={{ backgroundColor: color }}

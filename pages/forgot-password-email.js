@@ -13,8 +13,8 @@ export default function ForgotPasswordEmail() {
         <div className="flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-lg lg:w-[360px]">
             <div className="text-center">
-              <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-orange-100 mb-6 ring-8 ring-orange-50">
-                <KeyIcon className="w-7 h-7 text-orange-600" />
+              <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-violet-100 mb-6 ring-8 ring-violet-50">
+                <KeyIcon className="w-7 h-7 text-violet-600" />
               </span>
               <h1 className="mb-4 text-3xl font-bold text-slate-800">
                 Check your email

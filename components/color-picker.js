@@ -25,7 +25,7 @@ function ColorPicker({ color, onChange, colorPaletteSize, canDraw }) {
             <Popover.Button
               type="button"
               disabled={!canDraw}
-              className="w-8 h-8 md:w-12 md:h-12 border-2 border-orange-500 flex items-center justify-center"
+              className="w-8 h-8 md:w-12 md:h-12 border-2 border-violet-500 flex items-center justify-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ function ColorPicker({ color, onChange, colorPaletteSize, canDraw }) {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6 text-orange-500"
+                className="w-6 h-6 text-violet-500"
               >
                 <path
                   strokeLinecap="round"
