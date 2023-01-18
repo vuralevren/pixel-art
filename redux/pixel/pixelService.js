@@ -62,7 +62,7 @@ const pixelService = {
       .get(true);
   },
   updatePixelName(pixelId, pixelName) {
-    return endpoint.post("/pixel/name", { pixelId, pixelName });
+    return endpoint.put("/pixel/name", { pixelId, pixelName });
   },
   removePixelArt(pixelId) {
     return endpoint.delete("/pixel", { pixelId });
@@ -71,10 +71,10 @@ const pixelService = {
     return endpoint.delete("/pixel/member", { pixelId, memberId });
   },
   updatePixelPicture(pixelSlug, publicPath) {
-    return endpoint.post("/pixel/picture", { pixelSlug, publicPath });
+    return endpoint.put("/pixel/picture", { pixelSlug, publicPath });
   },
   replacePicture(file, pixelSlug) {
-    return endpoint.post("/pixel/replacePicture", file, {
+    return endpoint.put("/pixel/replacePicture", file, {
       pixelSlug,
     });
   },
