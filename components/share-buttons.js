@@ -1,11 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import {
-  FacebookShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-} from "react-share";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { toast } from "react-toastify";
 import Button from "./button";
 
@@ -36,7 +32,7 @@ function ShareButtons({ customLink, backgroundColor, beforeOnClick }) {
     <ul className="flex items-center">
       <li>
         <TwitterShareButton
-          url={`${shareUrl}?share_time=${new Date().getTime()}/`}
+          url={`${shareUrl}?share_time=${new Date().getTime()}`}
           beforeOnClick={beforeOnClick}
         >
           <a className={bgColor}>
@@ -58,7 +54,7 @@ function ShareButtons({ customLink, backgroundColor, beforeOnClick }) {
       </li>
       <li>
         <FacebookShareButton
-          url={`${shareUrl}?share_time=${new Date().getTime()}/`}
+          url={`${shareUrl}?share_time=${new Date().getTime()}`}
           beforeOnClick={beforeOnClick}
         >
           <a className={bgColor}>
