@@ -124,7 +124,7 @@ export default function Pixel({ pixel }) {
           property="og:description"
           content="Altogic developer card is a free tool that helps you to create a beautiful developer card for your profile."
         />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
         <meta property="twitter:title" content={`${pixel?.name} | Pixel Art`} />
         <meta
           property="twitter:description"
