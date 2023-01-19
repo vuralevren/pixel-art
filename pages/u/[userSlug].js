@@ -72,7 +72,7 @@ export default function UserArts() {
     if (_.size(value) > 2) {
       getUserArts(searchText, true, true);
     } else if (_.size(value) === 0) {
-      getUserArts("", true);
+      getUserArts("", true, true);
     }
   };
 

@@ -109,7 +109,7 @@ export default function PixelSettings() {
     setSearchText(value);
 
     if (_.size(value) === 0) {
-      getMemberList("", true);
+      getMemberList("", true, true);
     } else {
       getMemberList(searchText, true, true);
     }

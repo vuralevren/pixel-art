@@ -67,7 +67,7 @@ export default function Home() {
     setSearchText(value);
 
     if (_.size(value) === 0) {
-      getGlobalPixels("", true);
+      getGlobalPixels("", true, true);
     } else {
       getGlobalPixels(searchText, true, true);
     }
