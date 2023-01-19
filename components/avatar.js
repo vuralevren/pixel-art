@@ -47,7 +47,7 @@ export default function Avatar({ size, anotherUser }) {
                   fontSize(size),
                 ])}
               >
-                {Array.from(user?.name)[0].toUpperCase()}{" "}
+                {Array.from(user?.name)[0].toUpperCase()}
                 {Array.from(user?.name)[1].toUpperCase()}
               </span>
             </span>

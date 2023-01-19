@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ClipLoader } from "react-spinners";
-import { toast } from "react-toastify";
 import ColorPalette from "../../components/color-palette";
 import MemberList from "../../components/member-list";
 import AddTeamMembersModal from "../../components/modals/add-team-members-modal";
@@ -113,15 +112,15 @@ export default function Pixel({ pixel }) {
         <title>{pixel?.name} | Pixel Art</title>
         <meta
           property="twitter:image"
-          content={`https://pixel-art-next.vercel.app/api/og-image?link=${
-            pixel?.picture
-          }&name=${pixel?.name}&time=${new Date().getTime()}`}
+          content={`https://pixel-art-next.vercel.app/api/og-image?slug=${
+            pixel?.slug
+          }&time=${new Date().getTime()}`}
         />
         <meta
           property="og:image"
-          content={`https://pixel-art-next.vercel.app/api/og-image?link=${
-            pixel?.picture
-          }&name=${pixel?.name}&time=${new Date().getTime()}`}
+          content={`https://pixel-art-next.vercel.app/api/og-image?slug=${
+            pixel?.slug
+          }&time=${new Date().getTime()}`}
         />
         <meta property="og:title" content={`${pixel?.name} | Pixel Art`} />
         <meta property="og:site_name" content={`${pixel?.name} | Pixel Art`} />
