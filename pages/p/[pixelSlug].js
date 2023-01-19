@@ -118,9 +118,7 @@ export default function Pixel({ pixel }) {
         />
         <meta
           property="og:image"
-          content={`https://pixel-art-next.vercel.app/api/og-image?slug=${
-            pixel?.slug
-          }&time=${new Date().getTime()}`}
+          content={`https://pixel-art-next.vercel.app/api/og-image?slug=${pixel?.slug}`}
         />
         <meta property="og:title" content={`${pixel?.name} | Pixel Art`} />
         <meta property="og:site_name" content={`${pixel?.name} | Pixel Art`} />
