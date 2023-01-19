@@ -31,10 +31,7 @@ function ShareButtons({ customLink, backgroundColor, beforeOnClick }) {
   return (
     <ul className="flex items-center">
       <li>
-        <TwitterShareButton
-          url={`${shareUrl}?share_time=${new Date().getTime()}`}
-          beforeOnClick={beforeOnClick}
-        >
+        <TwitterShareButton url={shareUrl} beforeOnClick={beforeOnClick}>
           <a className={bgColor}>
             <svg
               className="w-6 h-6 text-gray-400 hover:text-gray-500"
@@ -53,10 +50,7 @@ function ShareButtons({ customLink, backgroundColor, beforeOnClick }) {
         </TwitterShareButton>
       </li>
       <li>
-        <FacebookShareButton
-          url={`${shareUrl}?share_time=${new Date().getTime()}`}
-          beforeOnClick={beforeOnClick}
-        >
+        <FacebookShareButton url={shareUrl} beforeOnClick={beforeOnClick}>
           <a className={bgColor}>
             <svg
               className="w-6 h-6 text-gray-400 hover:text-gray-500"
