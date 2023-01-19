@@ -136,9 +136,9 @@ export default function Pixel({ pixel }) {
         />
         <meta
           property="twitter:url"
-          content="https://pixel-art-next.vercel.app/"
+          content="https://pixel-art-next.vercel.app"
         />
-        <meta property="og:url" content="https://pixel-art-next.vercel.app/" />
+        <meta property="og:url" content="https://pixel-art-next.vercel.app" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Altogic" />
         <meta name="twitter:creator" content="Altogic" />
