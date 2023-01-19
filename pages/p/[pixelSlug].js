@@ -114,7 +114,10 @@ export default function Pixel({ pixel }) {
           property="twitter:image"
           content={`https://pixel-art-next.vercel.app/api/og/${pixel?.slug}`}
         />
-        <meta property="og:image" content={pixel?.picture} />
+        <meta
+          property="og:image"
+          content={`https://pixel-art-next.vercel.app/api/og/${pixel?.slug}`}
+        />
         <meta property="og:title" content={`${pixel?.name} | Pixel Art`} />
         <meta property="og:site_name" content={`${pixel?.name} | Pixel Art`} />
         <meta
