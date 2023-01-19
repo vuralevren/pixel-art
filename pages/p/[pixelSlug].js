@@ -213,7 +213,11 @@ export default function Pixel({ pixel }) {
                 </div>
               )}
             </div>
-            <ShareButtons className="mt-12" beforeOnClick={beforeOnClick} />
+            <ShareButtons
+              className="mt-12"
+              beforeOnClick={beforeOnClick}
+              customLink={`/p/${pixelSlug}`}
+            />
           </div>
           <div className="flex flex-col 2xl:flex-row 2xl:order-none">
             <div className="2xl:w-1/2 order-last 2xl:order-none">
