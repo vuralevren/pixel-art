@@ -109,7 +109,7 @@ export default function Pixel({ pixel }) {
   return (
     <div>
       <Head>
-        {/* <title>{pixel?.name} | Pixel Art</title>
+        <title>{pixel?.name} | Pixel Art</title>
         <meta
           property="twitter:image"
           content={`https://pixel-art-next.vercel.app/api/og/${pixel?.slug}`}
@@ -132,9 +132,10 @@ export default function Pixel({ pixel }) {
         <meta property="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Altogic" />
         <meta name="twitter:creator" content="Altogic" />
-        <link rel="icon" href="/favicon.svg" /> */}
+        <link rel="icon" href="/favicon.svg" />
+        <meta name="description" content="Altogic" />
 
-        <title>{pixel?.name ?? "Untitled"}</title>
+        {/* <title>{pixel?.name ?? "Untitled"}</title>
         <meta name="og:title" content={`${pixel?.name ?? "Untitled"}`} />
         <meta name="og:type" content="article" />
         <meta name="og:description" content={`Your Title`} />
@@ -142,7 +143,7 @@ export default function Pixel({ pixel }) {
           name="og:image"
           content={`https://pixel-art-next.vercel.app/api/og/${pixel?.slug}`}
         />
-        <meta name="description" content={`Your Title`} />
+        <meta name="description" content={`Your Title`} /> */}
       </Head>
       <Navbar ssr />
 
