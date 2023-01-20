@@ -144,6 +144,16 @@ export default function Pixel({ pixel }) {
           content={`https://pixel-art-next.vercel.app/api/og/${pixel?.slug}`}
         />
         <meta name="description" content={`Your Title`} />
+
+        <meta name="twitter:site" content="@Altogic" />
+        <meta name="twitter:creator" content="Altogic" />
+        <meta property="twitter:title" content={`${pixel?.name} | Pixel Art`} />
+        <meta property="twitter:description" content="Altogic" />
+        <meta
+          property="twitter:url"
+          content="https://pixel-art-next.vercel.app"
+        />
+        <meta property="twitter:card" content="summary_large_image" />
       </Head>
       <Navbar ssr />
 
