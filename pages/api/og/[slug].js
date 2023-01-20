@@ -27,7 +27,7 @@ export default async function handler(req) {
         tw="flex flex-col items-center justify-center w-full h-full"
       >
         <div tw="flex my-2">
-          <img width={600} height={600} src={pixel?.picture} alt="" />
+          <img width={600} height={600} src={pixel?.picture} alt="Logo" />
         </div>
       </section>
     ),
