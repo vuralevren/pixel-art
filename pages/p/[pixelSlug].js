@@ -109,39 +109,15 @@ export default function Pixel({ pixel }) {
   return (
     <div>
       <Head>
-        {/* <title>{pixel?.name} | Pixel Art</title>
-        <meta
-          property="twitter:image"
-          content={`https://pixel-art-next.vercel.app/api/og/${pixel?.slug}`}
-        />
-        <meta
-          property="og:image"
-          content={`https://pixel-art-next.vercel.app/api/og/${pixel?.slug}`}
-        />
-        <meta property="og:title" content={`${pixel?.name} | Pixel Art`} />
-        <meta property="og:site_name" content={`${pixel?.name} | Pixel Art`} />
-        <meta property="og:description" content="Altogic" />
-        <meta property="og:type" content="website" />
-        <meta property="twitter:title" content={`${pixel?.name} | Pixel Art`} />
-        <meta property="twitter:description" content="Altogic" />
-        <meta
-          property="twitter:url"
-          content="https://pixel-art-next.vercel.app"
-        />
-        <meta property="og:url" content="https://pixel-art-next.vercel.app" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@Altogic" />
-        <meta name="twitter:creator" content="Altogic" />
-        <link rel="icon" href="/favicon.svg" />
-        <meta name="description" content="Altogic" /> */}
-
-        <title>{pixel?.name ?? "Untitled"}</title>
-        <meta name="og:title" content={`${pixel?.name ?? "Untitled"}`} />
+        <title>{pixel?.name}</title>
+        <meta name="og:title" content={pixel?.name} />
         <meta name="og:type" content="website" />
         <meta name="og:description" content={`Your Title`} />
         <meta
           name="og:image"
-          content={`https://pixel-art-next.vercel.app/api/og/${pixel?.slug}`}
+          content={`https://pixel-art-next.vercel.app/api/og/${
+            pixel?.slug
+          }?date=${new Date().getTime()}`}
         />
         <meta name="description" content={`Your Title`} />
 
