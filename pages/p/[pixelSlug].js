@@ -137,7 +137,7 @@ export default function Pixel({ pixel }) {
 
         <title>{pixel?.name ?? "Untitled"}</title>
         <meta name="og:title" content={`${pixel?.name ?? "Untitled"}`} />
-        <meta name="og:type" content="article" />
+        <meta name="og:type" content="website" />
         <meta name="og:description" content={`Your Title`} />
         <meta
           name="og:image"
