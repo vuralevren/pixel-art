@@ -1,9 +1,11 @@
 import _ from "lodash";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import ArtList from "../components/art-list";
 import Container from "../components/container";
 import NewPixelModal from "../components/modals/new-pixel-modal";
+import MyHead from "../components/my-head";
 import Navbar from "../components/navbar";
 import useArraySelector from "../functions/hooks/useArraySelector";
 import { pixelActions } from "../redux/pixel/pixelSlice";
@@ -75,15 +77,9 @@ export default function Home() {
 
   return (
     <>
+      <MyHead />
       <Navbar newArt={() => setShowNewModal(true)} />
       <Container>
-        {/* {user && (
-          <>
-            <MyArts />
-            <Divider />
-          </>
-        )} */}
-
         <ArtList
           title="All Arts"
           handleSearch={handleSearch}
@@ -92,7 +88,6 @@ export default function Home() {
           loading={loading}
           getList={getGlobalPixels}
         />
-
         <NewPixelModal show={showNewModal} setShow={setShowNewModal} />
       </Container>
     </>

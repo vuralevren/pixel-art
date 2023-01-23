@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import MyHead from "../components/my-head";
 import { pixelActions } from "../redux/pixel/pixelSlice";
 import { MyRouter } from "../routes";
 
@@ -43,6 +44,7 @@ export default function JoinRedirect() {
 
   return (
     <div>
+      <MyHead />
       <div>Redirecting...</div>
     </div>
   );

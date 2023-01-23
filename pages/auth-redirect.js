@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import MyHead from "../components/my-head";
 import { authActions } from "../redux/auth/authSlice";
 
 export default function AuthRedirect() {
@@ -38,6 +39,7 @@ export default function AuthRedirect() {
 
   return (
     <div>
+      <MyHead />
       <div>Redirecting...</div>
     </div>
   );

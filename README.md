@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# How to build Pixel App
 
-## Getting Started
+## What is Pixel Art?
+Pixel art is a form of digital art where images are created and edited at the pixel level. It typically features low resolution and a limited color palette and is often used to create retro-style graphics in video games and other digital media. The style is characterized by its blocky, pixelated appearance and is created using software tools designed explicitly for pixel art.
 
-First, run the development server:
+## What is Altogic?
+Altogic backend as a service platform allows you to create and start running your backend apps in minutes. With your backend apps, you can manage your application data in a database, cache your data in memory, execute database transactions to ensure data integrity, run complex business logic through synchronous and asynchronous services, manage user sessions, schedule jobs to be executed at a specific time or interval, send and receive real-time messages through WebSockets and more.
 
+## Creating an Altogic Application
+As you are aware, Altogic will be used in this project, so if you do not already have an account, you must create one from the [Altogic Designer.](https://designer.altogic.com/)
+
+> I advise you to review the [documentation](https://www.altogic.com/client/installation) for more in-depth details. 
+
+## Setting up your development environment with Altogic and Next.js 13
 ```bash
-npm run dev
+npx create-next-app@latest
 # or
-yarn dev
+yarn create next-app
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

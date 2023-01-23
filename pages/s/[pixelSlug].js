@@ -15,6 +15,7 @@ import DeleteModal from "../../components/modals/delete-modal";
 import Navbar from "../../components/navbar";
 import { pixelActions } from "../../redux/pixel/pixelSlice";
 import useArraySelector from "../../functions/hooks/useArraySelector";
+import MyHead from "../../components/my-head";
 
 export default function PixelSettings() {
   const schema = new yup.ObjectSchema({
@@ -157,6 +158,7 @@ export default function PixelSettings() {
 
   return (
     <>
+      <MyHead />
       <Navbar />
       <Container className="my-12">
         <div className="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ArtList from "../../components/art-list";
 import Container from "../../components/container";
 import NewPixelModal from "../../components/modals/new-pixel-modal";
+import MyHead from "../../components/my-head";
 import Navbar from "../../components/navbar";
 import useArraySelector from "../../functions/hooks/useArraySelector";
 import { pixelActions } from "../../redux/pixel/pixelSlice";
@@ -78,6 +79,7 @@ export default function UserArts() {
 
   return (
     <>
+      <MyHead />
       <Navbar />
       <Container>
         <ArtList
