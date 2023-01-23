@@ -40,12 +40,12 @@ export default function MyHead({ pixelName, pixelSlug }) {
           "Real-Time Pixel Art Creator with Altogic - Suitable for All Skill Levels"
         }
       />
-      <meta name="twitter:description" content="Altogic" />
       <meta
-        property="twitter:url"
-        content="https://pixel-art-next.vercel.app"
+        name="twitter:description"
+        content="Real-time pixel art app allows you to create digital masterpieces in real-time, with a user-friendly interface. Experience the power of Altogic today!"
       />
-      <meta property="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content="https://pixel-art-next.vercel.app" />
+      <meta name="twitter:card" content="summary_large_image" />
     </Head>
   );
 }
