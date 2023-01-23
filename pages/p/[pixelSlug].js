@@ -109,7 +109,51 @@ export default function Pixel({ pixel }) {
 
   return (
     <div>
-      <MyHead pixelName={pixel?.name} pixelSlug={pixel?.slug} />
+      <Head>
+        <title>
+          {`${pixel?.name} | Real-Time Pixel Art Creator with Altogic`}
+        </title>
+        <meta
+          name="og:title"
+          content={`${pixel?.name} | Real-Time Pixel Art Creator with Altogic`}
+        />
+        <meta name="og:type" content="website" />
+        <meta
+          name="og:description"
+          content="Real-time pixel art app allows you to create digital masterpieces in real-time, with a user-friendly interface. Experience the power of Altogic today!"
+        />
+        <meta
+          name="og:image"
+          content={`https://pixel-art-next.vercel.app/api/og/${
+            pixel?.slug
+          }?date=${new Date().getTime()}`}
+        />
+        <meta
+          name="description"
+          content="Real-time pixel art app allows you to create digital masterpieces in real-time, with a user-friendly interface. Experience the power of Altogic today!"
+        />
+        <meta name="twitter:site" content="@Altogic" />
+        <meta name="twitter:creator" content="@Altogic" />
+        <meta
+          property="twitter:title"
+          content={`${pixel?.name} | Real-Time Pixel Art Creator with Altogic`}
+        />
+        <meta
+          property="twitter:description"
+          content="Real-time pixel art app allows you to create digital masterpieces in real-time, with a user-friendly interface. Experience the power of Altogic today!"
+        />
+        <meta
+          property="twitter:url"
+          content="https://pixel-art-next.vercel.app"
+        />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:image"
+          content={`https://pixel-art-next.vercel.app/api/og/${
+            pixel?.slug
+          }?date=${new Date().getTime()}`}
+        />
+      </Head>
       <Navbar ssr />
 
       {loading ? (

@@ -31,7 +31,10 @@ function ShareButtons({ customLink, backgroundColor, beforeOnClick }) {
   return (
     <ul className="flex items-center">
       <li>
-        <TwitterShareButton url={shareUrl} beforeOnClick={beforeOnClick}>
+        <TwitterShareButton
+          url={`${shareUrl}?utm_source=twitter&utm_medium=share_card&share_time=${new Date().getTime()}`}
+          beforeOnClick={beforeOnClick}
+        >
           <a className={bgColor}>
             <svg
               className="w-6 h-6 text-gray-400 hover:text-gray-500"
