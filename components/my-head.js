@@ -48,6 +48,15 @@ export default function MyHead({ pixelName, pixelSlug }) {
         property="twitter:url"
         content="https://pixel-art-next.vercel.app"
       />
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta
+        property="twitter:image"
+        content={
+          pixelSlug
+            ? `https://pixel-art-next.vercel.app/api/og/${pixelSlug}?date=${new Date().getTime()}`
+            : "/og-pixel.png"
+        }
+      />
     </Head>
   );
 }

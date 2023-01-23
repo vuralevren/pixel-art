@@ -1,5 +1,5 @@
-import logoPrimary from "../assets/logo-todo-primary.png";
-import logo from "../assets/logo-todo.png";
+import logoPrimary from "../assets/pixels-logo-a.png";
+import logo from "../assets/pixels-logo-b.png";
 
 export default function Logo({ className, w, h, primary }) {
   return (
