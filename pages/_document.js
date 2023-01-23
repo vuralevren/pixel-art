@@ -4,7 +4,7 @@ import MyHead from "../components/my-head";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <MyHead />
       <body>
         <Main />
         <NextScript />
