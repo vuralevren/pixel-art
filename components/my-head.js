@@ -14,6 +14,7 @@ export default function MyHead({ pixelName, pixelSlug }) {
           "Real-Time Pixel Art Creator with Altogic - Suitable for All Skill Levels"
         }
       />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="og:type" content="website" />
       <meta
         name="og:description"
@@ -31,7 +32,6 @@ export default function MyHead({ pixelName, pixelSlug }) {
         name="description"
         content="Real-time pixel art app allows you to create digital masterpieces in real-time, with a user-friendly interface. Experience the power of Altogic today!"
       />
-      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@Altogic" />
       <meta name="twitter:creator" content="@Altogic" />
       <meta
