@@ -109,30 +109,7 @@ export default function Pixel({ pixel }) {
 
   return (
     <div>
-      <Head>
-        <title>{pixel?.name}</title>
-        <meta name="og:title" content={pixel?.name} />
-        <meta name="og:type" content="website" />
-        <meta name="og:description" content={`Your Title`} />
-        <meta
-          name="og:image"
-          content={`https://pixel-art-next.vercel.app/api/og/${
-            pixel?.slug
-          }?date=${new Date().getTime()}`}
-        />
-        <meta name="description" content={`Your Title`} />
-
-        <meta name="twitter:site" content="@Altogic" />
-        <meta name="twitter:creator" content="Altogic" />
-        <meta property="twitter:title" content={`${pixel?.name} | Pixel Art`} />
-        <meta property="twitter:description" content="Altogic" />
-        <meta
-          property="twitter:url"
-          content="https://pixel-art-next.vercel.app"
-        />
-        <meta property="twitter:card" content="summary_large_image" />
-      </Head>
-
+      <MyHead pixelName={pixel?.name} pixelSlug={pixel?.slug} />
       <Navbar ssr />
 
       {loading ? (

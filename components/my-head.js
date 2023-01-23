@@ -48,7 +48,6 @@ export default function MyHead({ pixelName, pixelSlug }) {
         property="twitter:url"
         content="https://pixel-art-next.vercel.app"
       />
-      <meta property="twitter:card" content="summary_large_image" />
     </Head>
   );
 }
