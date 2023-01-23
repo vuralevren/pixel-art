@@ -1,5 +1,5 @@
 import logoPrimary from "../assets/pixels-logo-a.png";
-import logo from "../assets/pixels-logo-b.png";
+import logo from "../assets/pixels-logo-c.png";
 
 export default function Logo({ className, w, h, primary }) {
   return (
